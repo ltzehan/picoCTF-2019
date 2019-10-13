@@ -526,7 +526,7 @@ The cookie includes the flag:
 
 Similarly to [Empire2](#empire2(450)), we can decode the cookie, and we see that we now need to edit the cookie to user id 1 or 2, both of which seem to be admin. However, to encrypt the data back into a usable cookie, we need to sign it with a secret. 
 
-Going into the `Add a Todo` page and inputting `{{config}}`, we can see all the items under the flask configuration of the website. This utilises a [Server Side Template Injection(SSTI)](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server Side Template Injection), specifically a vulnerability in the Jinja2 template that Flask uses. 
+Going into the `Add a Todo` page and inputting `{{config}}`, we can see all the items under the flask configuration of the website. This utilises a [Server Side Template Injection(SSTI)](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md), specifically a vulnerability in the Jinja2 template that Flask uses. 
 
 Now viewing `Your Todos`, we get the `secret_key`, `'11e524344575850af46c19681f9baa0d'`. 
 
