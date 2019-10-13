@@ -146,7 +146,7 @@ Visiting https://2019shell1.picoctf.com/problem/21868/e0779.html now, we get our
 
 ### Solution
 
-Visiting the website, we are greeted by a page similar to [dont-use-client-side](#dont-use-client-side(100)). We thus check the source code of the website again, getting an obfuscation Javascript script:
+Visiting the website, we are greeted by a page similar to [dont-use-client-side](#dont-use-client-side100). We thus check the source code of the website again, getting an obfuscation Javascript script:
 
 ```html
 <script type="text/javascript">
@@ -170,7 +170,7 @@ We however, notice the array at the very start, containg a few strings, includin
 
 > Can cookies help you to get the flag?
 
-Visiting the website and clicking `Flag` tells us that we are not the admin, or it;s the incorrect time. From the challenge prompt, we know we need to be admin, and the time needs to be 1400. As hinted, we make a cookie named `Admin` with the value `True`, as seen in [logon](#logon(100)), and make a `Time` cookie with the value `1400`. Now clicking `Flag` gives us the flag:
+Visiting the website and clicking `Flag` tells us that we are not the admin, or it;s the incorrect time. From the challenge prompt, we know we need to be admin, and the time needs to be 1400. As hinted, we make a cookie named `Admin` with the value `True`, as seen in [logon](#logon100), and make a `Time` cookie with the value `1400`. Now clicking `Flag` gives us the flag:
 
  `picoCTF{0p3n_t0_adm1n5_b6ea8359}` 
 
@@ -235,7 +235,7 @@ This gives us the flag:
 
 > The password is being filtered.
 
-We start off by trying the same input as [Irish Name Repo 1](#irish-name-repo-1(300)):
+We start off by trying the same input as [Irish Name Repo 1](#irish-name-repo-1300):
 
 ```
 username: admin' --
@@ -268,7 +268,7 @@ We want to leak the encryption method somehow, so we open [BurpSuite](https://po
 
  We change this to a `1`, and forward the request. Now in addition to the `Login failed` page, we get some debug info:
 
-![image-20191013133400879](/Users/arnav/Library/Application Support/typora-user-images/image-20191013133400879.png)
+![image-20191013133400879](https://tva1.sinaimg.cn/large/006y8mN6gy1g7ws9jomqlj30z802qjrv.jpg)
 
 The 'encryption' method used is just [ROT13](https://www.wikiwand.com/en/ROT13)! We can thus craft our payloads normally, just running it through a ROT13 converter before sending it through. 
 
@@ -490,7 +490,7 @@ The cookie includes the flag:
 
 ### Solution
 
-*TODO* but extremely similar to [JS Kiddie](#java-script-kiddie(400)). It is now a 32 digit key, however, only alternate digits matter so code similar to [JS Kiddie](#java-script-kiddie(400)) can be used here to get the results QR code. Decoding it gives the flag:
+*TODO* but extremely similar to [JS Kiddie](#java-script-kiddie400). It is now a 32 digit key, however, only alternate digits matter so code similar to [JS Kiddie](#java-script-kiddie400) can be used here to get the results QR code. Decoding it gives the flag:
 
 `picoCTF{e1f443bfe40e958050e0d74aec4daa48}` 
 
@@ -524,7 +524,7 @@ The cookie includes the flag:
 
 ### Solution
 
-Similarly to [Empire2](#empire2(450)), we can decode the cookie, and we see that we now need to edit the cookie to user id 1 or 2, both of which seem to be admin. However, to encrypt the data back into a usable cookie, we need to sign it with a secret. 
+Similarly to [Empire2](#empire2450), we can decode the cookie, and we see that we now need to edit the cookie to user id 1 or 2, both of which seem to be admin. However, to encrypt the data back into a usable cookie, we need to sign it with a secret. 
 
 Going into the `Add a Todo` page and inputting `{{config}}`, we can see all the items under the flask configuration of the website. This utilises a [Server Side Template Injection(SSTI)](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection), specifically a vulnerability in the Jinja2 template that Flask uses. 
 
