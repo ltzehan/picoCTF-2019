@@ -1,7 +1,3 @@
----
-typora-copy-images-to: ipic
----
-
 # picoCTF 2019 Web Challenges
 
 ---
